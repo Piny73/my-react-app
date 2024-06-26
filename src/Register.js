@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './App';
 
 function Register() {
     const [fname, setFname] = useState("");
@@ -26,7 +27,7 @@ function Register() {
             })
             .then(res => res.text())
             .then(testo => {
-                console.log(error)
+                console.log(testo)
                 alert(`id nuovo=${testo}`)
             })
             .catch((error) => {
