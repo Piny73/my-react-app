@@ -2,8 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  let miotitolo ="Prima App React";
   return (
     <div className="App">
+      <h1>{miotitolo}</h1>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
