@@ -38,6 +38,7 @@ function Register() {
 
     return (
         <form onSubmit={handleSubmit}>
+            <div style={{ display: 'block' }}>
             <label>Enter your first-name:
                 <input
                     type="text"
@@ -45,6 +46,8 @@ function Register() {
                     onChange={(e) => setFname(e.target.value)}
                 />
             </label>
+            </div>
+            <div style={{ display: 'block' }}>
             <label>Enter your last-name:
                 <input
                     type="text"
@@ -52,6 +55,8 @@ function Register() {
                     onChange={(e) => setLname(e.target.value)}
                 />
             </label>
+            </div>
+            <div style={{ display: 'block' }}>
             <label>Enter your email:
                 <input
                     type="text"
@@ -59,6 +64,8 @@ function Register() {
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </label>
+            </div>
+            <div style={{ display: 'block' }}>
             <label>Enter your pwd:
                 <input
                     type="text"
@@ -66,6 +73,8 @@ function Register() {
                     onChange={(e) => setPwd(e.target.value)}
                 />
             </label>
+            </div>
+            <div style={{ display: 'block' }}>
             <label>Enter again your pwd:
                 <input
                     type="text"
@@ -73,6 +82,8 @@ function Register() {
                     onChange={(e) => setConfirmpwd(e.target.value)}
                 />
             </label>
+            </div>
+            <div style={{ display: 'block' }}>
             <label>Enter your credit:
                 <input
                     type="text"
@@ -80,6 +91,7 @@ function Register() {
                     onChange={(e) => setCredit(e.target.value)}
                 />
             </label>
+            </div>
             <input type="submit" />
         </form>
     );

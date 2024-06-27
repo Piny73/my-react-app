@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as jwt from'jose';
+import * as jwt from 'jose';
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -23,9 +23,12 @@ function Login() {
             .then(objson => {
                 const token = objson.token;
                 console.log(token);
-                const account =jwt.decodeJwt(token);
+                const account = jwt.decodeJwt(token);
+                sessionStorage.setItem("id", account.sub);
+                sessionStorage.setItem("email", account.upn);
+                sessionStorage.setItem("token", token);
+
                 console.log(account)
-                
             })
             .catch((error) => {
                 console.log(error)
@@ -35,20 +38,20 @@ function Login() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Enter your email:
-                <input 
+            <div style={{ display: 'block' }}>
+                <label>Enter your email:</label>
+                <input
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-            </label>
-            <label>Enter your pwd:
-                <input 
+                <label>Enter your pwd:</label>
+                <input
                     type="text"
                     value={pwd}
                     onChange={(e) => setPwd(e.target.value)}
                 />
-            </label>
+            </div>
             <input type="submit" />
         </form>
     );
