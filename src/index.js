@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Register from './Register';
 import Login from './Login';
+import AccountList from './AccountList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,5 +12,6 @@ root.render(
     <App />
     <Register />
     <Login />
+    <AccountList />
   </React.StrictMode>
 );
