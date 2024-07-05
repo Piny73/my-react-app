@@ -14,7 +14,6 @@ function AccountPage() {
       <Logout />
       
       </div>
-
 </>
 
 
