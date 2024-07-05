@@ -32,11 +32,9 @@ function Accountlist() {
 
         </>
     )
-
 }
 
 function OptionAccount(props) {
     return <option account-id={props.ac.id} value={props.ac.id}>{props.ac.fname} {props.ac.lname}</option>;
 }
-
 export default Accountlist

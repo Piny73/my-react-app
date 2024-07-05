@@ -19,8 +19,7 @@ function Login() {
         const dati = {
             email,
             pwd
-        }
-            ;
+        };
         const stringDati = JSON.stringify(dati);
 
         fetch('http://localhost:8080/payghost/api/auths',

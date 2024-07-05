@@ -18,7 +18,6 @@ function Logout() {
     setIsAuthenticated(false);
     navigate("/");
   }
-
   return (
     <button onClick={quit}>Logout</button>
   );

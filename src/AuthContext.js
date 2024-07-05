@@ -13,9 +13,7 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(!!token); // Update the authentication status based on the presence of a token
       const user = sessionStorage.getItem('email');
       setLoggeduser(user); // Update the authentication status based on the presence of a token
-
     };
-
     checkAuthStatus();
   }, []);
 

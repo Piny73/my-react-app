@@ -27,9 +27,7 @@ function Private() {
                 sessionStorage.setItem("email", account.upn);
                 sessionStorage.setItem("token",token );
                 
-                console.log(account)
-                
-
+                console.log(account)            
             })
         .catch((error) => {
                 console.log(error);

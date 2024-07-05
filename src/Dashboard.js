@@ -10,8 +10,6 @@ function Dashboard() {
   const { auth, user } = useContext(AuthContext);
   const [isAuthenticated, setIsAuthenticated] = auth; // null represents the initial loading state
   const [loggeduser, setLoggeduser] = user; // null represents the initial loading state
-
-
   return (
     <>
       <h1>Dashboard</h1>
@@ -22,5 +20,4 @@ function Dashboard() {
     </>
   );
 }
-
 export default Dashboard;
