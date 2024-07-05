@@ -1,12 +1,11 @@
-import { useState } from 'react';
-import './App';
-
+import { useState } from "react";
+import './Register.css';
 function Register() {
     const [fname, setFname] = useState("");
     const [lname, setLname] = useState("");
     const [email, setEmail] = useState("");
     const [pwd, setPwd] = useState("");
-    const [confirmPwd, setConfirmpwd] = useState("");
+    const [confirmPwd, setConfirmPwd] = useState("");
     const [credit, setCredit] = useState("");
 
     const handleSubmit = (event) => {
@@ -16,8 +15,10 @@ function Register() {
             lname,
             email,
             pwd,
-            confirmPwd};
-        const stringDati = JSON.stringify(dati);
+            confirmPwd,
+            credit  }
+        ;
+        const stringDati=JSON.stringify(dati);
 
         fetch('http://localhost:8080/payghost/api/accounts',
             {
@@ -25,76 +26,42 @@ function Register() {
                 headers: { 'Content-Type': 'application/json' },
                 body: stringDati
             })
-            .then(res => res.text())
-            .then(testo => {
-                console.log(testo)
-                alert(`id nuovo=${testo}`)
-            })
-            .catch((error) => {
-                console.log(error)
+        .then(res => res.text())
+        .then(testo => {
+                console.log(testo);
+                alert(`id nuovo=${testo}`);
 
-            });
+            })
+        .catch((error) => {
+                console.log(error);
+              }
+            );
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <div style={{ display: 'block' }}>
-            <label>Enter your first-name:
-                <input
-                    type="text"
-                    value={fname}
-                    onChange={(e) => setFname(e.target.value)}
-                />
+            <label>Enter your firstname:
+                <input type="text" value={fname} onChange={(e) => setFname(e.target.value)} />
             </label>
-            </div>
-            <div style={{ display: 'block' }}>
-            <label>Enter your last-name:
-                <input
-                    type="text"
-                    value={lname}
-                    onChange={(e) => setLname(e.target.value)}
-                />
+            <label>Enter your lastname:
+                <input type="text" value={lname} onChange={(e) => setLname(e.target.value)} />
             </label>
-            </div>
-            <div style={{ display: 'block' }}>
             <label>Enter your email:
-                <input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
             </label>
-            </div>
-            <div style={{ display: 'block' }}>
             <label>Enter your pwd:
-                <input
-                    type="text"
-                    value={pwd}
-                    onChange={(e) => setPwd(e.target.value)}
-                />
+                <input type="text" value={pwd} onChange={(e) => setPwd(e.target.value)} />
             </label>
-            </div>
-            <div style={{ display: 'block' }}>
-            <label>Enter again your pwd:
-                <input
-                    type="text"
-                    value={confirmPwd}
-                    onChange={(e) => setConfirmpwd(e.target.value)}
-                />
+            <label>Enter your confirmPwd:
+                <input type="text" value={confirmPwd} onChange={(e) => setConfirmPwd(e.target.value)} />
             </label>
-            </div>
-            <div style={{ display: 'block' }}>
             <label>Enter your credit:
-                <input
-                    type="text"
-                    value={credit}
-                    onChange={(e) => setCredit(e.target.value)}
-                />
+                <input type="text" value={credit} onChange={(e) => setCredit(e.target.value)} />
             </label>
-            </div>
             <input type="submit" />
         </form>
-    );
+    )
+
 }
 
-export default Register;
+export default Register
