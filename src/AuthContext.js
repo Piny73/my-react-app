@@ -15,10 +15,12 @@ export const AuthProvider = ({ children }) => {
       setLoggeduser(user); // Update the authentication status based on the presence of a token
     };
     checkAuthStatus();
-  }, []);
+  }, 
+  []);
 
   return (
-    <AuthContext.Provider value={{ auth: [isAuthenticated, setIsAuthenticated], user: [loggeduser, setLoggeduser] }}>
+    <AuthContext.Provider value={{ auth: [isAuthenticated, setIsAuthenticated], 
+                                   user: [loggeduser, setLoggeduser] }}>
 
       {children}
 
