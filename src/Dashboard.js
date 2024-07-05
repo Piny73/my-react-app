@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from './AuthContext';
 
 import Accountlist from './Accountlist';
+import MyAccount from './MyAccount';
 
 function Dashboard() {
   const { auth, user } = useContext(AuthContext);
@@ -11,7 +12,12 @@ function Dashboard() {
     <>
       <h1>Dashboard</h1>
       <div className="container">
-        {isAuthenticated && <Accountlist />}
+        {isAuthenticated &&
+        <>
+         <Accountlist />
+         <MyAccount/>
+         </>
+         }
         {!isAuthenticated && <h2> Utente non loggato</h2>}
       </div>
     </>

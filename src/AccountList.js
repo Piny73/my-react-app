@@ -1,5 +1,33 @@
 import { useState, useEffect } from "react";
 function Accountlist() {
+    const [amount, setAmount] = useState(0);
+    const [receiverId, setReceiverId] = useState("");
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const dati ={
+            amount,
+            receiverId,};
+
+        const stringDati=JSON.stringify(dati);
+        const id=sessionStorage.getItem("id");
+        const url = `http://localhost:8080/payghost/api/accounts` + id + `/transactions`;
+        fetch(url,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: stringDati
+            })
+        .then(res => res.text())
+        .then(testo => {
+                console.log(testo);
+                alert(`id nuovo=${testo}`);
+
+            })
+        .catch((error) => {
+                console.log(error);
+              }
+            );
+    }
     const [accounts, setAccounts] = useState([]);
     useEffect(() => {
         const tk = sessionStorage.getItem("token");
@@ -16,20 +44,22 @@ function Accountlist() {
                 setAccounts(json);
             })
             .catch((error) => {
-                const json = [{ id: 22, fname: "qwe", lname: "wer" }, { id: 33, fname: "asd", lname: "asd" }]
                 console.log(error);
-                setAccounts(json);
             }
             );
-    }, [accounts]);
+    }, []);
     return (
         <>
-            <select className="form-select">
-                {accounts.map((curac) => <OptionAccount ac={curac} />)}
+            <form onSubmit={handleSubmit}>
+                <label>Inserisci l'importo da trasferire:
+                    <input type="text" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                </label>
+                <select className="form-select" value={receiverId} onChange={(e) => setReceiverId(e.target.value)}>
+                    {accounts.map((curac) => <OptionAccount ac={curac} />)}
 
-            </select>
-
-
+                </select>
+                <input type="submit" />
+            </form>
         </>
     )
 }
