@@ -16,15 +16,10 @@ function Dashboard() {
     <>
       <h1>Dashboard</h1>
       <div class="container">
-
         {isAuthenticated && <Accountlist />}
         {!isAuthenticated && <h2> Utente non loggato</h2>}
-
       </div>
-
     </>
-
-
   );
 }
 

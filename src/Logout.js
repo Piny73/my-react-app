@@ -22,10 +22,6 @@ function Logout() {
   return (
     <button onClick={quit}>Logout</button>
   );
-
-
-
-
 }
 
 export default Logout

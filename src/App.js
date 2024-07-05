@@ -9,7 +9,7 @@ import Home from './Home';
 import {AuthProvider} from './AuthContext';
 
 function App() {
-  let miotitolo = "Prima App React";
+  const miotitolo = "Prima App React";
 
   return (
     <>

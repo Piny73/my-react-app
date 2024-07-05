@@ -7,8 +7,6 @@ function AccountPage() {
   
   return (
     <>
-    <header className="App-header">
-        </header>
       <h1>Account Page</h1>
       <div className="container">
       <Login />
